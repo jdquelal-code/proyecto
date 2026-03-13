@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura semántica</title>
+
+    <link rel="stylesheet" href="../css/style.css"
+
+
+</head>
+<body>
+    <header>
+        <h1 class="titulo"> Estructura Semantica </h1>
+        <nav>
+            <a href="" class="texto destacado"> Inicio</a>
+            <a href=""> Contenido</a>
+            <a href="" class="texto-destacado"> Acerca de ..</a>
+            <a href=""> Contactanos</a>
+        </nav>
+    </header>
+    <main>
+        <h2 class="texto-destacado" Seccion principal></h2>
+
+        <div class="tarjeta-proyecto">
+            <h3>Aplicacion Interactiva</h3>
+            <p>Un proyecyo desarrollado con HTML, CSS Y JS.</p>
+
+        </div>
+       
+       
+       
+       
+       
+        <section>
+            <article>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat magni perspiciatis laborum, ipsam eos optio dicta
+                at praesentium blanditiis autem omnis iure quis ratione aliquid consectetur officiis laboriosam id suscipit
+                consequuntur est. Ut maiores saepe minus esse, suscipit atque voluptatum reprehenderit est consequatur? Quos,
+                repellat doloremque consectetur ducimus omnis dolores temporibus delectus asperiores mollitia aliquid consequatur
+                odit natus et voluptatem similique nostrum at, in minima saepe sint provident nulla quisquam cum deserunt?
+                Reiciendis iste culpa omnis. Dolor, minima modi magni distinctio voluptatem dicta velit saepe ipsum unde, maiores
+                animi ab. Dolor vero quibusdam harum suscipit repellendus voluptas nulla alias debitis?</p>
+
+                <p id="destacado">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, voluptates quidem unde suscipit
+                    voluptate, obcaecati quisquam minus tempora odio consequatur velit nesciunt amet repudiandae neque quis, delectus
+                    officia. Totam rerum delectus explicabo reiciendis. Quasi, deleniti facere repudiandae eos, sed nemo suscipit
+                    voluptatibus accusantium voluptates reiciendis voluptas obcaecati reprehenderit earum blanditiis commodi architecto
+                    sapiente saepe cumque quidem asperiores non possimus! Consequuntur aliquid eos quaerat fuga, enim fugiat nam
+                    expedita sapiente commodi! Reiciendis, in? Eaque inventore cum temporibus laudantium veniam assumenda, eos nihil
+                    ullam magnam quod excepturi, qui nisi nam ratione neque. Esse, distinctio ipsam! Iusto nesciunt, quo adipisci
+                    dignissimos eaque quasi?</p>
+            </article>
+        </section>
+    </main>
+    <aside>
+
+    </aside>
+    <footer>
+
+    </footer>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

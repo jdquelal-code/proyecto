@@ -1,0 +1,64 @@
+/* style.css */
+
+h1 {
+    color:rgb(28, 167, 222);
+}
+   
+   
+   bodY{
+    background-color: #1dcc52a4;
+    padding: 20px;
+}
+   
+   
+ /* Selector de etiqueta: Pinta el fondo de TODO el <main> */
+main {
+    background-color: #1968d0a4;
+    padding: 20px;
+}
+
+p {
+    background-color: #a81c62a4;
+    padding: 20px;
+}
+
+/* Selector de clase: Solo afecta al pÃ¡rrafo con class="texto-destacado" */
+.texto-destacado {
+    color: #369d0a;
+    font-weight: bold;
+}
+
+/* Selector de ID: Solo afecta a la barra de navegaciÃ³n con id="menu-principal" */
+#menu-principal {
+    background-color: #080808;
+    padding: 10px;
+}
+#destacado {
+
+background-color: #ae144da4;
+    padding: 20px;
+}
+
+
+/* TIPOGRAFIA */
+
+.titulo {                                                                                                                          
+
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     font-size: 4rem; 
+     text-shadow: 4px 2px 4px #65816cdb ;
+    
+    } 
+    
+    
+
+/* EJEMPLO MODELO CAJA */
+
+.tarjeta-proyecto {
+background-color: rgb(158, 58, 58);
+
+padding: 20px; /* Espacio interior para que el texto respire */
+margin: 15px; /* Separación con otras tarjetas */
+border-radius: 12px; /* Esquinas redondeadas suaves */
+box-shadow: 0px 4px 8px rgba(39, 89, 39, 0.1); /* Efecto de tarjeta flotante */
+}
