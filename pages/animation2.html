@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes aparecerDesdeAbajo {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* Inicia invisible y 30px abajo */
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Termina visible y en su posición real */
+    }
+
+    .alerta-animada {
+        background-color: #4CAF50;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        /* Ejecuta la animación "aparecerDesdeAbajo", dura 1 segundo, termina suavemente */
+        animation: aparecerDesdeAbajo 1s ease-out;
+    }
+</style>
+
+<body>
+    <div class="alerta-animada">
+        <p>¡Nuevo proyecto disponible!</p>
+    </div>
+</body>
+
+</html>
