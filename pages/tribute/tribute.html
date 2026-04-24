@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tributo a Gustavo Petro - Presidente de Colombia</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- PANTALLA DE APERTURA -->
+    <div id="opening-screen" class="opening-screen">
+        <!-- Logo Pacto Histórico con paloma y cara de Petro -->
+        <div class="pacto-logo-container">
+            <div class="petro-portrait">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Fondo verde del Pacto Histórico -->
+                    <circle cx="100" cy="100" r="95" fill="#1a5f2a"/>
+                    <circle cx="100" cy="100" r="85" fill="#2d8a3e"/>
+                    <!-- Cara de Petro -->
+                    <ellipse cx="100" cy="95" rx="50" ry="60" fill="#d4a574"/>
+                    <!-- Cabello -->
+                    <path d="M55 70 Q60 40 100 35 Q140 40 145 70 Q140 55 100 50 Q60 55 55 70" fill="#4a4a4a"/>
+                    <!-- Ojos -->
+                    <ellipse cx="80" cy="90" rx="8" ry="5" fill="#fff"/>
+                    <ellipse cx="120" cy="90" rx="8" ry="5" fill="#fff"/>
+                    <circle cx="80" cy="90" r="4" fill="#2d2d2d"/>
+                    <circle cx="120" cy="90" r="4" fill="#2d2d2d"/>
+                    <!-- Cejas -->
+                    <path d="M70 80 Q80 75 90 80" stroke="#4a4a4a" stroke-width="2" fill="none"/>
+                    <path d="M110 80 Q120 75 130 80" stroke="#4a4a4a" stroke-width="2" fill="none"/>
+                    <!-- Nariz -->
+                    <path d="M100 95 L95 110 L105 110 Z" fill="#c49464"/>
+                    <!-- Boca -->
+                    <path d="M85 125 Q100 135 115 125" stroke="#8b6b4a" stroke-width="3" fill="none"/>
+                    <!-- Orejas -->
+                    <ellipse cx="50" cy="95" rx="8" ry="15" fill="#d4a574"/>
+                    <ellipse cx="150" cy="95" rx="8" ry="15" fill="#d4a574"/>
+                    <!-- Texto PACTO HISTÓRICO -->
+                    <text x="100" y="170" text-anchor="middle" fill="#fff" font-family="Playfair Display, serif" font-size="14" font-weight="bold">PACTO</text>
+                    <text x="100" y="185" text-anchor="middle" fill="#fff" font-family="Playfair Display, serif" font-size="14" font-weight="bold">HISTÓRICO</text>
+                    <!-- Paloma blanca -->
+                    <path d="M155 45 Q165 35 175 45 Q185 40 190 50" stroke="#fff" stroke-width="2" fill="none"/>
+                    <circle cx="178" cy="48" r="3" fill="#fff"/>
+                </svg>
+            </div>
+        </div>
+        <!-- Paloma animada -->
+        <div class="dove-container" id="dove">
+            <svg class="dove" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 50 Q25 35 40 50 Q55 35 70 50 Q80 40 90 45" stroke="#fff" stroke-width="2" fill="none" class="dove-wing"/>
+                <circle cx="85" cy="45" r="3" fill="#fff"/>
+                <path d="M85 45 L95 42" stroke="#fff" stroke-width="1"/>
+                <ellipse cx="50" cy="50" rx="35" ry="15" fill="rgba(255,255,255,0.1)"/>
+            </svg>
+        </div>
+        <!-- Texto Pacto Histórico -->
+        <div class="pacto-historico" id="pacto-text">
+            <h1 class="pacto-title">PACTO HISTÓRICO</h1>
+            <p class="pacto-subtitle">Un nuevo comienzo para Colombia</p>
+        </div>
+        <!-- Mensaje del Presidente -->
+        <div class="president-message" id="president-message">
+            <div class="message-content">
+                <h2 class="message-title">SOY GUSTAVO PETRO</h2>
+                <h3 class="message-subtitle">Y SOY SU PRESIDENTE</h3>
+                <p class="message-text" id="speech-text">Juntos construiremos la paz, la justicia social y un país donde quepan todos los sueños.</p>
+                <button class="btn-listen" id="play-voice">
+                    <span class="icon">🔊</span> Escuchar mensaje
+                </button>
+                <audio id="petro-audio" src="audio/1.mp3"></audio>
+            </div>
+        </div>
+        <!-- Logros del Gobierno -->
+        <div class="achievements-intro" id="achievements">
+            <h2 class="achievements-title">LO QUE HE HECHO POR EL PAÍS</h2>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <span class="achievement-icon">📚</span>
+                    <h3>Educación Gratis</h3>
+                    <p>Educación superior gratuita para estudiantes de bajos recursos</p>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-icon">🏥</span>
+                    <h3>Reforma a la Salud</h3>
+                    <p>Sistema de salud preventivo y universal</p>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-icon">🕊️</span>
+                    <h3>Paz Total</h3>
+                    <p>Política de paz para terminar el conflicto armado</p>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-icon">⚡</span>
+                    <h3>Transición Energética</h3>
+                    <p>Plan hacia fuentes de energía renovables</p>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-icon">💰</span>
+                    <h3>Reforma Tributaria</h3>
+                    <p>Tributación progresiva que beneficia a los vulnerables</p>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-icon">🌎</span>
+                    <h3>Política Exterior</h3>
+                    <p>Fortalecimiento de relaciones en América Latina</p>
+                </div>
+            </div>
+            <button class="btn-enter" id="enter-site">Entrar al Sitio</button>
+        </div>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-logo">GP</a>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#biografia" class="nav-link">Biografía</a></li>
+                <li><a href="#trayectoria" class="nav-link">Trayectoria</a></li>
+                <li><a href="#logros" class="nav-link">Logros</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title" data-animate="fadeInUp">Gustavo Petro</h1>
+            <p class="hero-subtitle" data-animate="fadeInUp" data-delay="200">Presidente de la República de Colombia</p>
+            <p class="hero-period" data-animate="fadeInUp" data-delay="400">2022 - 2026</p>
+            <div class="hero-cta" data-animate="fadeInUp" data-delay="600">
+                <a href="#biografia" class="btn-primary">Conocer más</a>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="particles"></div>
+    </section>
+
+    <!-- Biografía Section -->
+    <section id="biografia" class="section">
+        <div class="container">
+            <h2 class="section-title" data-animate="slideInLeft">Biografía</h2>
+            <div class="biografia-grid">
+                <div class="biografia-card" data-animate="fadeInUp">
+                    <div class="card-icon">📅</div>
+                    <h3>Nacimiento</h3>
+                    <p>Nació el 17 de abril de 1960 en Ciénaga, Magdalena. Economista de formación, egresado de la Universidad Externado de Colombia.</p>
+                </div>
+                <div class="biografia-card" data-animate="fadeInUp" data-delay="100">
+                    <div class="card-icon">🎓</div>
+                    <h3>Formación</h3>
+                    <p>Economista con especialización en finanzas y gestión pública. Estudios en administración y economía ambiental.</p>
+                </div>
+                <div class="biografia-card" data-animate="fadeInUp" data-delay="200">
+                    <div class="card-icon">💼</div>
+                    <h3>Carrera Política</h3>
+                    <p>Congresista, Alcalde de Bogotá (2012-2015), Senador de la República, y actual Presidente de Colombia.</p>
+                </div>
+            </div>
+            <div class="biografia-destacado" data-animate="fadeInUp">
+                <blockquote>
+                    "La paz no es solo el silencio de los fusiles, es la construcción de una sociedad donde quepan todos los sueños."
+                </blockquote>
+                <cite>- Gustavo Petro</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trayectoria Section -->
+    <section id="trayectoria" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title" data-animate="slideInLeft">Trayectoria Política</h2>
+            <div class="timeline" id="timeline">
+                <div class="timeline-item" data-year="1988">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Movimiento Alternativo</h3>
+                        <p>Fundación del Movimiento Alternativo Social (MAS), primera organización política de izquierda legal en Colombia.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="1991">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Asambleísta Constituyente</h3>
+                        <p>Elección como asambleísta para la Constitución Política de 1991.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="1998">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Congresista</h3>
+                        <p>Elección como Representante a la Cámara por Bogotá.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2006">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Senador</h3>
+                        <p>Elección como Senador de la República con la mayor votación de la historia para un candidato de izquierda.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2012">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Alcalde de Bogotá</h3>
+                        <p>Elección como Alcalde Mayor de Bogotá. Implementó políticas de movilidad sostenible y seguridad alimentaria.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2018">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Candidatura Presidencial</h3>
+                        <p>Candidatura a la Presidencia con el movimiento Colombia Humana. Segunda vuelta más ajustada en la historia.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2022">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Presidente de Colombia</h3>
+                        <p>Elección como Presidente de la República en segunda vuelta, convirtiéndose en el primer presidente de izquierda en la historia del país.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logros Section -->
+    <section id="logros" class="section">
+        <div class="container">
+            <h2 class="section-title" data-animate="slideInLeft">Logros del Gobierno</h2>
+            <div class="logros-grid">
+                <div class="logro-card" data-animate="scaleIn">
+                    <div class="logro-number">01</div>
+                    <h3>Reforma Tributaria</h3>
+                    <p>Implementación de una reforma tributaria progresiva que beneficia a los más vulnerables y cierra brechas de desigualdad.</p>
+                </div>
+                <div class="logro-card" data-animate="scaleIn" data-delay="100">
+                    <div class="logro-number">02</div>
+                    <h3>Paz Total</h3>
+                    <p>Política de paz con enfoque diferencial para terminar el conflicto armado y promover la reconciliación nacional.</p>
+                </div>
+                <div class="logro-card" data-animate="scaleIn" data-delay="200">
+                    <div class="logro-number">03</div>
+                    <h3>Transición Energética</h3>
+                    <p>Plan de transición energética hacia fuentes renovables, reduciendo la dependencia de combustibles fósiles.</p>
+                </div>
+                <div class="logro-card" data-animate="scaleIn" data-delay="300">
+                    <div class="logro-number">04</div>
+                    <h3>Reforma a la Salud</h3>
+                    <p>Transformación del sistema de salud hacia un modelo preventivo y universal.</p>
+                </div>
+                <div class="logro-card" data-animate="scaleIn" data-delay="400">
+                    <div class="logro-number">05</div>
+                    <h3>Educación Gratis</h3>
+                    <p>Implementación de educación superior gratuita para estudiantes de bajos recursos económicos.</p>
+                </div>
+                <div class="logro-card" data-animate="scaleIn" data-delay="500">
+                    <div class="logro-number">06</div>
+                    <h3>Política Exterior</h3>
+                    <p>Fortalecimiento de relaciones con países de América Latina y promoción de la integración regional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contador Section -->
+    <section class="counter-section">
+        <div class="container">
+            <div class="counter-grid">
+                <div class="counter-item" data-animate="countUp" data-target="1000">
+                    <span class="counter-number">0</span>
+                    <span class="counter-label">Días de Gobierno</span>
+                </div>
+                <div class="counter-item" data-animate="countUp" data-target="50">
+                    <span class="counter-number">0</span>
+                    <span class="counter-label">Políticas Implementadas</span>
+                </div>
+                <div class="counter-item" data-animate="countUp" data-target="32">
+                    <span class="counter-number">0</span>
+                    <span class="counter-label">Años de Trayectoria</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title" data-animate="slideInLeft">Contacto</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" required>
+                    <label for="name">Nombre</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" required>
+                    <label for="email">Correo Electrónico</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" required></textarea>
+                    <label for="message">Mensaje</label>
+                </div>
+                <button type="submit" class="btn-primary">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Tributo a Gustavo Petro. Todos los derechos reservados.</p>
+            <p class="footer-subtitle">Página de tributo elaborada con fines informativos.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Galería de Colombia -->
+    <section id="galeria" class="section">
+        <div class="container">
+            <h2 class="section-title" data-animate="slideInLeft">Galería de Colombia</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Palacio_de_Nariño%2C_Bogotá%2C_Colombia.jpg" alt="Palacio de Nariño y bandera de Colombia">
+                    <p>Palacio de Nariño y bandera</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Cattleya_trianae_Orqu%C3%ADdea_Nacional_de_Colombia.jpg" alt="Orquídea Cattleya trianae">
+                    <p>Orquídea Cattleya trianae (Flor Nacional)</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Colombia_relief_location_map.jpg" alt="Mapa de Colombia">
+                    <p>Mapa de Colombia</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.nationalgeographic.com.es/medio/2023/07/19/cano-cristales-colombia_00000000_230719120823_800x800.jpg" alt="Caño Cristales">
+                    <p>Caño Cristales</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.minambiente.gov.co/wp-content/uploads/2021/09/orquidea-cattleya-trianae.jpg" alt="Orquídea Cattleya trianae en su hábitat natural">
+                    <p>Orquídea en su hábitat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <audio autoplay>
+        <source src="audio/1.mp3" type="audio/mpeg">
+    </audio>
+    
+</body>
+</html>
