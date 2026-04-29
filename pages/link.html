@@ -1,28 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>    
-<body>
+    <title>Imágenes - Jose Quelal</title>
     
+    <style>
+        /* Mantenemos el estilo Aesthetic Verde */
+        :root {
+            --verde-oscuro: #2d4a22;
+            --verde-principal: #6a994e;
+            --verde-claro: #a7c957;
+            --verde-fondo: #f2f4f3;
+            --blanco: #ffffff;
+            --borde: #dce3da;
+        }
 
-<h1> Enlaces </h1>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--verde-fondo);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
 
-<!-- Etiqueta de comentaria <a>  
-    href: la direccion del recurso  -->
+        header {
+            background-color: var(--verde-oscuro);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
 
-    <a href="https://www.iemsantateresita.edu.co">Ir a pagina del colegio </a>
+        h1 { margin: 0; font-size: 1.8rem; }
+        h2 { color: var(--verde-oscuro); margin-bottom: 15px; }
 
-    <a href="../index.html"> ir al indice </a>
+        /* Contenedor del "Cuadrito" para la imagen */
+        .content-item {
+            background: var(--blanco);
+            border: 1px solid var(--borde);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center; /* Centra la imagen dentro del cuadro */
+            transition: transform 0.3s ease;
+        }
 
-    <h1> Imagenes </h1>
-    <!--Etiqueta imagenes <img>
-    src: la direccion del recurso de imagen
-    alt: descripcion de la imagen-->
-    <img src="../imagenes/ippo.jpg" alt=" Ippo">
+        .content-item:hover {
+            transform: scale(1.02);
+            border-color: var(--verde-principal);
+        }
+
+        /* Estilo de la imagen para que no se salga del cuadro */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid var(--verde-claro);
+        }
+
+        .image-caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: var(--verde-oscuro);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: var(--verde-principal);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../../index.html" class="back-link">← Volver al inicio</a>
+
+    <header>
+        <h1>Multimedia: Imágenes</h1>
+    </header>
+
+    <div class="container">
+        <h2>Visualización de Recursos</h2>
+
+        <div class="content-item">
+            <img src="../imagenes/ippo.jpg" alt="Ippo">
+            
+            <p class="image-caption">Imagen representativa: Personaje Ippo</p>
+        </div>
+
+        <div class="content-item">
+            <h3>¿Por qué usar el atributo ALT?</h3>
+            <p>El atributo <strong>alt</strong> es fundamental para la accesibilidad web, permitiendo que personas con discapacidad visual entiendan el contenido y ayudando al SEO de nuestra página.</p>
+        </div>
+    </div>
 
 </body>
 </html>

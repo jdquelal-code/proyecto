@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicios Bucles</title>
 </head>
+
 <body>
-     <script>
+    <script>
         //Contar los multiplos de 17 entre los primeros 1000 numeros naturales 
 
-         let count = 0;
+        let count = 0;
 
-         for(let i=1;i<1000;i++){
-            if(i%17 === 0 ){
-                 count++;
+        for (let i = 1; i < 1000; i++) {
+            if (i % 17 === 0) {
+                count++;
 
             }
-         }
-        console.log(`La cantidad de multiplo 17 entre los primeros 1000 números naturales es ${count}`);
-          
-         //Monstrar los números entre el 1 y el 100 que no sean multiplos de 2 ni 5
-         //utilizar ciclo while
-         
-          console.log("Metodo 1")
-          let i = 0;
-          while(i<100){
+        }
+        console.log(La cantidad de multiplo 17 entre los primeros 1000 números naturales es ${ count });
+
+        //Monstrar los números entre el 1 y el 100 que no sean multiplos de 2 ni 5
+        //utilizar ciclo while
+
+        console.log("Metodo 1")
+        let i = 0;
+        while (i < 100) {
             i++;
 
-            if (i%2 === 0 || i%5 === 0)continue; //Si es multiplo salta
+            if (i % 2 === 0 || i % 5 === 0) continue; //Si es multiplo salta
 
             console.log(i)
             console.log("Metodo 2")
             i = 0;
             i++
-            if(i % 2 !=0 || i % 5 ===0 )console.log(i);//Si no es multiplo escribe 
-          }
-        
-     </script>
+            if (i % 2 != 0 || i % 5 === 0) console.log(i);//Si no es multiplo escribe 
+        }
+
+    </script>
 </body>
+
+</html>
+
+
+
+</script>
+</head>
+
+<body>
+
+</body>
+
 </html>

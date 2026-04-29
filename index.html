@@ -1,34 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ejercicio 1-jose</title>
+    
+    <style>
+        /* Estilo Aesthetic Verde Minimalista */
+        :root {
+            --verde-oscuro: #2d4a22;
+            --verde-principal: #6a994e;
+            --verde-claro: #a7c957;
+            --verde-fondo: #f2f4f3;
+            --crema: #f2e8cf;
+            --texto: #333;
+        }
 
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--verde-fondo);
+            color: var(--texto);
+            margin: 0;
+            line-height: 1.6;
+        }
 
-<link rel="stylesheet" href="css/style.css">
+        header {
+            background-color: var(--verde-oscuro);
+            color: var(--crema);
+            padding: 3rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--verde-claro);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Navegación */
+        nav {
+            background-color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-item {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        .menu-item a {
+            text-decoration: none;
+            color: var(--verde-oscuro);
+            font-weight: 600;
+            padding: 8px 12px;
+            transition: all 0.3s;
+        }
+
+        .menu-item a:hover {
+            color: var(--verde-principal);
+            background-color: var(--crema);
+            border-radius: 5px;
+        }
+
+        /* Dropdown Estético */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 10px 0;
+            top: 100%;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content li {
+            list-style: none;
+        }
+
+        .dropdown-content li a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Layout */
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        section h2 {
+            color: var(--verde-principal);
+            border-left: 4px solid var(--verde-claro);
+            padding-left: 15px;
+        }
+
+        article p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Columna Lateral Aesthetic */
+        aside {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: var(--crema) !important;
+            border-left: 8px solid var(--verde-principal) !important;
+            padding: 25px;
+            border-radius: 15px;
+            color: var(--verde-oscuro);
+        }
+
+        footer {
+            background-color: var(--verde-oscuro);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+    </style>
 </head>
+
 <body>
-    <head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Proyecto Político</title>
-    <link rel="stylesheet" href="css/styles.css">
-    </head>
 
     <header>
-
-
         <h1>Curso Desarrollo Web</h1>
         <h3>Presentado por: Jose Quelal</h3>
-     </header>
-     <main>
-            <nav id="menu-principal">
+    </header>
+
+    <nav id="menu-principal">
         <ul class="menu">
             <li class="menu-item"><a href="#">Inicio</a></li>
-            
+
             <li class="menu-item dropdown">
-                <a href="#">HTML</a>
+                <a href="#">HTML ▾</a>
                 <ul class="dropdown-content">
                     <li><a href="pages/text.html">Etiquetas de texto</a></li>
                     <li><a href="pages/link.html">Enlaces e imágenes</a></li>
@@ -38,17 +169,17 @@
                     <li><a href="pages/form.html">Formularios</a></li>
                 </ul>
             </li>
-            
+
             <li class="menu-item dropdown">
-                <a href="#">CSS</a>
+                <a href="#">CSS ▾</a>
                 <ul class="dropdown-content">
                     <li><a href="pages/layout.html">Layout y Navegación</a></li>
                     <li><a href="pages/responsive.html">Diseño Responsivo</a></li>
                 </ul>
             </li>
-            
+
             <li class="menu-item dropdown">
-                <a href="#">JavaScript</a>
+                <a href="#">JavaScript ▾</a>
                 <ul class="dropdown-content">
                     <li><a href="pages/operators.html">Operadores</a></li>
                     <li><a href="pages/conditionals.html">Condicionales</a></li>
@@ -57,87 +188,56 @@
                     <li><a href="pages/objects.html">Objetos</a></li>
                     <li><a href="pages/dom1.html">DOM I</a></li>
                     <li><a href="pages/dom2.html">DOM II</a></li>
-                    <li><a href="pages/animation1.html">Animaciones I</a></li>
-                    <li><a href="pages/animation2.html">Animaciones II</a></li>
                 </ul>
             </li>
-            
+
             <li class="menu-item dropdown">
-                <a href="#">Prácticas</a>
+                <a href="#">Prácticas ▾</a>
                 <ul class="dropdown-content">
                     <li><a href="pages/test_js1.html">Test JS 1</a></li>
                     <li><a href="pages/test_js2.html">Test JS 2</a></li>
                     <li><a href="pages/test_loop.html">Test Bucles</a></li>
-                    <li><a href="pages/test_loop2.html">Test Bucles 2</a></li>
                 </ul>
             </li>
-            
+
             <li class="menu-item">
-                <a href="pages/tribute/tribute.html">Página sobre Gustavo Petro</a></li>
+                <a href="pages/tribute/tribute.html">Gustavo Petro</a>
+            </li>
         </ul>
-    </nav>    <h1>Contenido principal</h1>
+    </nav>
+
+    <main>
+        <h1>Contenido principal</h1>
         <section>
-            <h2>Seccion</h2>
-             <article>
-                <h3> Articulo</h3> 
+            <h2>Seccion Educativa</h2>
+            <article>
+                <h3>Detalles del Articulo</h3>
 
-                <h3> Articulo</h3>
+                <p>Bienvenido al espacio de aprendizaje. Aquí exploramos la intersección entre la tecnología y el diseño funcional. El desarrollo web no solo es lógica; es un arte que permite comunicar ideas a todo el mundo a través de una pantalla.</p>
+
+                <p>El desarrollo web moderno no solo se trata de escribir código, sino de entender cómo la estructura semántica de HTML5 ayuda a los buscadores a indexar mejor nuestro contenido. Cada etiqueta tiene un propósito claro que mejora la accesibilidad para todos los usuarios.</p>
+
+                <p>En este curso, estamos explorando desde las bases del diseño con CSS hasta la interactividad compleja que nos permite JavaScript. Es fundamental practicar constantemente cada etiqueta y cada regla de estilo para dominar la creación de sitios web profesionales y adaptables.</p>
+
+                <p><strong>Nuevos Horizontes:</strong> La tecnología evoluciona cada día. Aprender a manejar Flexbox y Grid en CSS es el primer paso para crear interfaces que se sientan naturales tanto en un móvil como en una computadora de escritorio. La armonía visual es clave para retener al usuario.</p>
+
+                <p>Finalmente, este proyecto refleja el avance en el manejo de estructuras complejas y la organización de menús navegables. La meta es construir una plataforma sólida que sirva como portafolio personal y como bitácora de aprendizaje técnico profesional.</p>
                 
-
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam itaque quod recusandae ratione culpa nobis nemo.
-                        Tempore architecto quod quidem nihil itaque debitis sint corporis earum aperiam nostrum soluta minus at vitae
-                        dignissimos alias cum iure, cupiditate atque. Ab nesciunt, perspiciatis saepe, labore at nulla harum sint sunt
-                        provident rerum, doloremque quas voluptas. Magnam ut autem officiis sapiente fugiat, quia voluptatibus qui
-                        praesentium temporibus vero ducimus dolores nisi commodi sit aperiam numquam repudiandae molestias magni recusandae
-                        facere cum tempore asperiores consequuntur ipsam. Aliquam iste consequuntur reprehenderit aliquid delectus, tempore
-                        omnis? Exercitationem sapiente at dolore eligendi ullam commodi amet, culpa qui deserunt in pariatur quod itaque
-                        consequatur dolor autem dignissimos repellendus, repellat sit nemo! Quaerat vel sequi molestiae ducimus explicabo
-                        adipisci obcaecati at labore facere. Neque, consequatur impedit! Eius facere tempora, maiores odit, unde consequatur
-                        vitae numquam tempore, eos in amet fugiat totam dignissimos odio exercitationem corporis ipsum at optio esse
-                        praesentium! Sequi quasi odit, debitis amet at tenetur perspiciatis repellendus dolores aliquid excepturi ad minus
-                        cumque eveniet cum consequatur velit accusantium iusto inventore doloremque ipsa, accusamus vel aperiam. Sapiente
-                        debitis esse minus consequatur beatae atque doloremque dolores eos, at dolorem a quae. Explicabo libero vitae,
-                        numquam dicta perspiciatis vero ducimus incidunt ad rerum quas. Nulla mollitia ipsum nemo soluta laudantium cum,
-                        asperiores dolore quam velit est atque voluptatum incidunt repellendus sit, cupiditate voluptatem magni adipisci
-                        perspiciatis ipsa fugiat delectus ratione expedita perferendis nesciunt. Eius incidunt odio libero? Eos, ut
-                        voluptatibus debitis repellat quidem eligendi perferendis repellendus quisquam ab distinctio consectetur itaque,
-                        molestias neque minus? Eius eos ad corporis? Odit suscipit illo ratione dignissimos. Voluptate culpa hic aliquam
-                        doloribus dolores molestias distinctio, assumenda reprehenderit blanditiis veritatis ad eaque consequuntur fuga
-                        libero iste cupiditate dolore nam deleniti quis, maiores laboriosam voluptatum impedit corrupti! Asperiores,
-                        consectetur cum? Architecto labore vitae est veniam maiores.</p>
-             </article>
+                <p>Dignissimos alias cum iure, cupiditate atque. Ab nesciunt, perspiciatis saepe, labore at nulla harum
+                    sint sunt provident rerum, doloremque quas voluptas. Es imperativo seguir explorando nuevas librerías y marcos de trabajo que optimicen nuestro tiempo de desarrollo.</p>
+            </article>
         </section>
     </main>
+
     <aside>
-        <h2>Contenido principal</h2>
+        <h2>Información de Apoyo</h2>
+        <p>Esta columna lateral sirve para colocar recursos adicionales, enlaces de interés o datos rápidos sobre los temas tratados en el artículo principal.</p>
+        <p><strong>Dato Curioso:</strong> ¿Sabías que el color verde se asocia con el crecimiento, la renovación y la energía positiva? Es el color perfecto para una página de aprendizaje.</p>
     </aside>
-    <footer id="footer"> 
-        <h2>Pie de pagina</h2>
+
+    <footer id="footer">
+        <h2>© 2026 - Jose Quelal - Diseño Web Profesional</h2>
     </footer>
-
-    <!-- <h1> Indice </h1>
-    <a href="pages/link.html"> Ir a enlaces e imagenes </a> -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">Mi Proyecto</div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="pages/propuestas.html">Propuestas</a></li>
-                <li><a href="pages/contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <img src="imagenes/petro.jpg" alt="Imagen de Petro" class="profile-img">
-            <h1>Bienvenidos a mi propuesta</h1>
-            <p>Trabajando por un cambio real en nuestra institución.</p>
-            <a href="#propuestas" class="btn">Ver Propuestas</a>
-        </div>
-    </section>
-
-
 
 </body>
 </html>

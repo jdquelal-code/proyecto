@@ -1,25 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multimedia</title>
+    <title>Multimedia - Jose Quelal</title>
+    
+    <style>
+        /* Estilo Aesthetic Verde Unificado */
+        :root {
+            --verde-oscuro: #2d4a22;
+            --verde-principal: #6a994e;
+            --verde-claro: #a7c957;
+            --verde-fondo: #f2f4f3;
+            --blanco: #ffffff;
+            --borde: #dce3da;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--verde-fondo);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--verde-oscuro);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        h1 { margin: 0; font-size: 2rem; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { color: var(--verde-oscuro); margin-top: 10px; margin-bottom: 20px; text-align: center; }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Estilo de los "Cuadritos" (Tarjetas Multimedia) */
+        .card-multimedia {
+            background: var(--blanco);
+            border: 1px solid var(--borde);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card-multimedia:hover {
+            transform: translateY(-5px);
+            border-color: var(--verde-principal);
+        }
+
+        /* Ajustes para que el contenido multimedia sea responsivo */
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        video, iframe {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid var(--verde-claro);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: var(--verde-principal);
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-     <h1>Integracion Multimedia</h1>
 
-     <audio controls src="../audio/Pufino - Metal Is Trash (freetouse.com).mp3"></audio>
+    <div class="container">
+        <a href="../../index.html" class="back-link">← Volver al inicio</a>
 
-      <h2>Control de video</h2>
+        <header>
+            <h1>Integración Multimedia</h1>
+        </header>
 
-     <video width="640" height="360" controls autoplay muted loop >
-        <source src="/video/606939_Motion_Graphic_Vfx_3840x2160.mp4" type="video/mp4">
+        <div class="card-multimedia">
+            <h2>Reproductor de Audio</h2>
+            <p>Escucha nuestra selección musical técnica:</p>
+            <audio controls src="../audio/Pufino - Metal Is Trash (freetouse.com).mp3"></audio>
+        </div>
 
-     </video>
-     <h2>video desde youtube</h2>
+        <div class="card-multimedia">
+            <h2>Control de Video Local</h2>
+            <video width="640" height="360" controls muted loop>
+                <source src="../video/606939_Motion_Graphic_Vfx_3840x2160.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+        </div>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/AvpQmdm1rhU" allowfullscreen></iframe>
+        <div class="card-multimedia">
+            <h2>Video desde YouTube</h2>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                    src="https://www.youtube.com/embed/AvpQmdm1rhU" 
+                    frameborder="0" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; color: var(--verde-oscuro); padding: 20px;">
+        <p>&copy; 2026 Jose Quelal - Multimedia Aesthetic</p>
+    </footer>
 
 </body>
 </html>

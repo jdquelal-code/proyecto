@@ -1,83 +1,200 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <title>Perfil de Jugador - Jose Quelal</title>
+    
+    <style>
+        /* Estilo Aesthetic Verde Gaming */
+        :root {
+            --verde-oscuro: #2d4a22;
+            --verde-principal: #6a994e;
+            --verde-claro: #a7c957;
+            --verde-fondo: #f2f4f3;
+            --blanco: #ffffff;
+            --rojo-dmg: #bc4749;
+        }
 
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--verde-fondo);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Cuadrito del Jugador (Card) */
+        .player-card {
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 2px solid var(--verde-principal);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            color: var(--verde-oscuro);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .level-badge {
+            background: var(--verde-claro);
+            color: var(--verde-oscuro);
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        /* Barra de Vida */
+        .health-container {
+            margin: 20px 0;
+        }
+
+        .health-bar-bg {
+            background: #eee;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        #healthBar {
+            background: var(--verde-principal);
+            height: 100%;
+            width: 100%; /* Empieza al 100% */
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+
+        .stats-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--verde-oscuro);
+        }
+
+        /* Botones */
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+            color: white;
+        }
+
+        #shoot { background-color: var(--rojo-dmg); }
+        #shoot:hover { background-color: #a33b3d; }
+
+        #recoveryHealth { background-color: var(--verde-principal); }
+        #recoveryHealth:hover { background-color: var(--verde-oscuro); }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: var(--verde-principal);
+            font-weight: bold;
+        }
+    </style>
+</head>
 <body>
 
+    <a href="../../index.html" class="back-link">← Volver</a>
 
-    <div>
-        <h2 id="playerName">NOMBRE DEL JUGADOR</h2>
-        <h3 id="health">200</h3>
-        <button id="shoot">disparar</button>
-        <button id="recoveryHealth">recuperar </button>
+    <div class="player-card">
+        <span class="level-badge" id="playerLevel">LVL 0</span>
+        <h2 id="playerName">NOMBRE</h2>
+        
+        <div class="health-container">
+            <div class="stats-text"><span id="health">100</span> HP</div>
+            <div class="health-bar-bg">
+                <div id="healthBar"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="shoot">Disparar 💥</button>
+            <button id="recoveryHealth">Curar ✨</button>
+        </div>
     </div>
 
-
     <script>
-        //objetos
-
-
-        // Creación del objeto
+        // Objeto Jugador
         const jugador = {
-            // Propiedades
-            nombre: "uva",
+            nombre: "Uva",
             nivel: 15,
             salud: 100,
             inventario: ["Espada", "Poción"],
-            // Métodos (Funciones internas)
-            curar: function () {
 
-                this.salud += 20; // 'this' se refiere a este mismo objeto
-                console.log("Salud actual: " + this.salud);
+            curar: function () {
+                if (this.salud < 100) {
+                    this.salud += 20;
+                    if (this.salud > 100) this.salud = 100; // No pasar de 100
+                }
             },
 
             lostlife: function () {
-            this.salud -= 40;
+                this.salud -= 20; // Reduje el daño a 20 para que dure más la prueba
+                if (this.salud < 0) this.salud = 0; // No bajar de 0
             }
         };
 
-         const playerName = document.getElementById("playerName");
-        const health = document.getElementById("health");
+        // Captura de elementos del DOM
+        const playerNameDisp = document.getElementById("playerName");
+        const healthDisp = document.getElementById("health");
+        const healthBar = document.getElementById("healthBar");
+        const levelDisp = document.getElementById("playerLevel");
+        const botonShoot = document.getElementById("shoot");
+        const botonRecoveryHealth = document.getElementById("recoveryHealth");
 
+        // Inicializar datos
+        function actualizarInterfaz() {
+            playerNameDisp.textContent = jugador.nombre;
+            healthDisp.textContent = jugador.salud;
+            levelDisp.textContent = "LVL " + jugador.nivel;
+            
+            // Actualizar barra de vida visual
+            healthBar.style.width = jugador.salud + "%";
 
-        
-        // Acceder y modificar datos con punto
-        jugador.nivel = 16;
-        console.log("Bienvenido, " + jugador.nombre);
+            // Cambiar color si tiene poca vida
+            if (jugador.salud < 30) {
+                healthBar.style.backgroundColor = "#bc4749"; // Rojo
+            } else {
+                healthBar.style.backgroundColor = "#6a994e"; // Verde
+            }
+        }
 
-         playerName.textContent = jugador.nombre;
-         health.textContent = jugador.salud;
+        // Eventos de botones
+        botonShoot.addEventListener("click", function() {
+            jugador.lostlife();
+            actualizarInterfaz();
+        });
 
-         const botonShoot = document.getElementById("shoot");
-         const botonRecoveryHealth = document.getElementById("recoveryHealth");
+        botonRecoveryHealth.addEventListener("click", function() {
+            jugador.curar();
+            actualizarInterfaz();
+        });
 
-            botonShoot.addEventListener("click", function() {
-                jugador.lostlife();
-                health.textContent = jugador.salud;
-            });
-
-            botonRecoveryHealth.addEventListener("click", function() {
-                jugador.curar();
-                health.textContent = jugador.salud;
-            });
-
-        // Acceder con corchetes (útil cuando la clave es dinámica)
-        let claveDinamica = "salud";
-        console.log(jugador[claveDinamica]);
-
-        
-
-        
-
+        // Llamada inicial
+        actualizarInterfaz();
 
     </script>
-
 </body>
-
 </html>

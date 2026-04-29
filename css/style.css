@@ -974,7 +974,11 @@ h1, h2, h3 {
 /* ========================================
    GLOBAL ELEMENTS
    ======================================== */
-body {
+html{
+    display: block;
+}
+
+   body {
     background: linear-gradient(180deg, #f5f7ef 0%, #e9f1e4 100%);
     padding: 10px;
     margin: 20px;
@@ -982,6 +986,8 @@ body {
 
 main {
     padding: 30px 0;
+    max-width: 900px;
+    
 }
 
 header, footer, nav, section, article, aside {
@@ -1176,4 +1182,23 @@ button:hover, .btn-primary:hover {
         width: 100%;
         text-align: center;
     }
+}
+
+/* ========================================
+   CONTENT ITEMS - GLASSMORPHISM
+   ======================================== */
+.content-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 15px 0;
+    display: block;
+}
+
+.content-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }

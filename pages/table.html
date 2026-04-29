@@ -1,38 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Tablas de Proyecto - Jose Quelal</title>
+    
+    <style>
+        /* Estilo Aesthetic Verde Unificado */
+        :root {
+            --verde-oscuro: #2d4a22;
+            --verde-principal: #6a994e;
+            --verde-claro: #a7c957;
+            --verde-fondo: #f2f4f3;
+            --blanco: #ffffff;
+            --crema: #f2e8cf;
+        }
 
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--verde-fondo);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra la tabla en la pantalla */
+        }
 
+        header {
+            width: 100%;
+            max-width: 800px;
+            background-color: var(--verde-oscuro);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 { margin: 0; font-size: 1.8rem; text-transform: uppercase; }
+
+        /* Contenedor del "Cuadrito" para la tabla */
+        .table-container {
+            background: var(--blanco);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 800px;
+            overflow-x: auto; /* Para que se vea bien en celulares */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Quita los espacios dobles entre bordes */
+            margin-top: 10px;
+        }
+
+        /* Estilo de la cabecera de la tabla */
+        th {
+            background-color: var(--verde-principal);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            border-bottom: 3px solid var(--verde-claro);
+        }
+
+        /* Estilo de las celdas */
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Efecto cebra (filas intercaladas) */
+        tr:nth-child(even) {
+            background-color: #f9fbf9;
+        }
+
+        /* Resaltar fila al pasar el mouse */
+        tr:hover {
+            background-color: var(--crema);
+            transition: 0.2s;
+        }
+
+        .back-link {
+            align-self: flex-start;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: var(--verde-principal);
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-        <h1>Tablas</h1>
 
-    <table>
-        <tr>
-            <th>Nombre del Estudiante</th>
-            <th>Grado</th>
-            <th>Rol en el proyecto</th>
-       
-        </tr>     
-        <tr>
-            <td>Anderson Potosi</td>
-            <td>Once</td>
-            <td>Programador</td>
-        </tr>
-        <tr>
-            <td>Victor Timaran</td>
-            <td>Once</td>
-            <td>Programador</td>
-        </tr>
-        <tr>
-            <td>Jose Quelal</td>
-            <td>Once</td>
-            <td>Lider</td>
-        </tr>
-    </table>
+    <a href="../../index.html" class="back-link">← Volver al inicio</a>
+
+    <header>
+        <h1>Gestión del Proyecto</h1>
+    </header>
+
+    <div class="table-container">
+        <h2>Miembros del Equipo</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre del Estudiante</th>
+                    <th>Grado</th>
+                    <th>Rol en el proyecto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Anderson Potosi</td>
+                    <td>Once</td>
+                    <td>Programador</td>
+                </tr>
+                <tr>
+                    <td>Victor Timaran</td>
+                    <td>Once</td>
+                    <td>Programador</td>
+                </tr>
+                <tr>
+                    <td>Jose Quelal</td>
+                    <td>Once</td>
+                    <td><strong>Líder</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer style="margin-top: 30px; color: var(--verde-oscuro);">
+        <p>Tabla organizada por Jose Quelal &copy; 2026</p>
+    </footer>
+
 </body>
 </html>

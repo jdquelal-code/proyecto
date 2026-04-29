@@ -4,48 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etiquetas de texto</title>
+    
+    <style>
+        /* Estilo Aesthetic Verde con "Cuadritos" */
+        :root {
+            --verde-oscuro: #2d4a22;
+            --verde-principal: #6a994e;
+            --verde-claro: #a7c957;
+            --verde-fondo: #f2f4f3;
+            --blanco: #ffffff;
+            --borde: #dce3da;
+        }
 
-    <link rel="stylesheet" href="../css/style.css">
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--verde-fondo);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--verde-oscuro);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 { margin: 0; font-size: 1.8rem; }
+        h2 { color: var(--verde-oscuro); margin-top: 30px; }
+
+        /* Estilo de los "Cuadritos" (Tarjetas) */
+        .content-item {
+            background: var(--blanco);
+            border: 1px solid var(--borde);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        /* Efecto al pasar el mouse por el cuadrito */
+        .content-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--verde-principal);
+        }
+
+        /* Estilo especial para las listas dentro de los cuadritos */
+        ol.content-item, ul.content-item {
+            padding-left: 50px; /* Espacio para los números o puntos */
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: var(--verde-oscuro);
+            font-weight: 500;
+        }
+
+        /* Botón de regreso opcional */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: var(--verde-principal);
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+
+    <a href="../../index.html" class="back-link">← Volver al inicio</a>
+
     <header>
         <h1>Etiquetas de texto</h1>
     </header>
 
-<h2>Ejemplo de un párrafo</h2>
-    <!--Esto es un comentario  -->
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore enim nesciunt aspernatur obcaecati repudiandae
+    <h2>Ejemplo de un párrafo</h2>
+    
+    <p class="content-item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore enim nesciunt aspernatur obcaecati repudiandae
         similique laborum. Consectetur numquam aliquid temporibus veniam architecto odit commodi quos, voluptatem fugit
-        deserunt inventore quam!</p>
+        deserunt inventore quam!
+    </p>
     
-    <!--Esto es un comentario de 100  -->
+    <p class="content-item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis illum adipisci ad voluptates perspiciatis
+        molestiae natus odit eveniet ab ex facere explicabo nam, ratione illo vero, suscipit aut soluta repellendus!
+    </p>
     
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis illum adipisci ad voluptates perspiciatis
-        molestiae natus odit eveniet ab ex facere explicabo nam, ratione illo vero, suscipit aut soluta repellendus! ipsum
-        dolor sit amet consectetur adipisicing elit. Amet vel vero, porro placeat non quod esse, doloribus ut unde
-        aspernatur sed reiciendis blanditiis. Fuga impedit nesciunt modi! Ab, consequatur alias?</p>
-    
-    <!--Esto es un comentario de 500 palabras  -->
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel veniam quibusdam totam! Tempora adipisci quia, rerum,
-        beatae sed ex porro molestias ut iste quisquam quod vel velit consectetur dolorem commodi.</p>
-<!--LISTAS-->
+    <p class="content-item">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel veniam quibusdam totam! Tempora adipisci quia, rerum,
+        beatae sed ex porro molestias ut iste quisquam quod vel velit consectetur dolorem commodi.
+    </p>
 
-<!--Listas ordenadas <ol>  -->
+    <h2>Listas ordenadas</h2>
+    <ol class="content-item">
+        <li>Primer elemento</li>
+        <li>Segundo elemento</li>
+        <li>Tercer elemento</li>
+    </ol>
 
-    <h2> Listas ordenadas </h2>
-<ol>
-    <li> Primer elemento </li>
-    <li> Segundo elemento </li>
-    <li> Tercer elemento </li>
-</ol>Listas ordenadas <ul>  -->
-
-    <h2> Listas desordenadas </h2>
-<ul>
-    <li> Primer elemento </li>
-    <li> Segundo elemento </li>
-    <li> Tercer elemento </li>
-</u+l>
-
+    <h2>Listas desordenadas</h2>
+    <ul class="content-item">
+        <li>Primer elemento</li>
+        <li>Segundo elemento</li>
+        <li>Tercer elemento</li>
+    </ul>
 
 </body>
 </html>

@@ -1,30 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>operadores</title>
-</head>
+    <title>Operadores JS - Jose Quelal</title>
+    
+    <style>
+        /* Estilo Aesthetic Verde */
+        :root {
+            --verde-oscuro: #2d4a22;
+            --verde-principal: #6a994e;
+            --verde-claro: #a7c957;
+            --verde-fondo: #f2f4f3;
+            --blanco: #ffffff;
+            --codigo-bg: #282c34;
+        }
 
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--verde-fondo);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            max-width: 700px;
+            background-color: var(--verde-oscuro);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        /* Cuadritos para explicar operadores */
+        .card-operador {
+            background: var(--blanco);
+            width: 100%;
+            max-width: 700px;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--verde-principal);
+        }
+
+        h2 { color: var(--verde-oscuro); margin-top: 0; font-size: 1.2rem; }
+        
+        /* Estilo para bloques de código */
+        code {
+            background-color: var(--codigo-bg);
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 8px;
+            display: block;
+            font-family: 'Consolas', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        .resultado {
+            font-weight: bold;
+            color: var(--verde-principal);
+            background: #f0fdf4;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .back-link {
+            align-self: flex-start;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: var(--verde-principal);
+            font-weight: bold;
+        }
+    </style>
+</head>
 <body>
-    <h1>Prueba de operadores</h1>
+
+    <a href="../../index.html" class="back-link">← Volver al inicio</a>
+
+    <header>
+        <h1>Lógica con Operadores</h1>
+    </header>
+
+    <div class="card-operador">
+        <h2>Matemáticos y Asignación</h2>
+        <p>Utilizados para cálculos y cambiar valores de variables.</p>
+        <code>
+            let vidas = 3;<br>
+            vidas -= 1; // El jugador pierde una vida
+        </code>
+        <p>Resultado en variable vidas: <span class="resultado" id="res-vidas">Calculando...</span></p>
+    </div>
+
+    <div class="card-operador">
+        <h2>Operadores de Comparación</h2>
+        <p>Sirven para validar si algo es igual o diferente a otro valor.</p>
+        <code>
+            let nivel = 5;<br>
+            console.log(nivel === 5);
+        </code>
+        <p>¿El nivel es estrictamente igual a 5?: <span class="resultado" id="res-nivel">Calculando...</span></p>
+    </div>
+
+    <div class="card-operador">
+        <h2>Operadores Lógicos (&&)</h2>
+        <p>Permiten combinar varias condiciones.</p>
+        <code>
+            if (tieneLlave && nivelCompletado) { ... }
+        </code>
+        <p>Estado de la puerta: <span class="resultado" id="res-puerta">Cerrada</span></p>
+    </div>
 
     <script>
-        // Matemáticos y Asignación
+        // Lógica de los operadores aplicada a la pantalla
+        
+        // 1. Matemáticos
         let vidas = 3;
-        vidas -= 1; // El jugador pierde una vida. Resultado: 2
-        // Comparación
+        vidas -= 1; 
+        document.getElementById('res-vidas').innerText = vidas;
+
+        // 2. Comparación
         let nivel = 5;
-        console.log(nivel === 5); // true (verdadero)
-        // Lógicos
+        let esIgual = (nivel === 5);
+        document.getElementById('res-nivel').innerText = esIgual ? "Verdadero (true)" : "Falso (false)";
+
+        // 3. Lógicos
         let tieneLlave = true;
         let nivelCompletado = true;
-        if (tieneLlave && nivelCompletado) { // Requiere que AMBAS sean verdaderas
+        if (tieneLlave && nivelCompletado) {
+            document.getElementById('res-puerta').innerText = "¡Abierta! (Ambas condiciones se cumplen)";
             console.log("¡Puerta abierta!");
         }
     </script>
-</body>
 
+    <footer style="margin-top: 20px; color: var(--verde-oscuro);">
+        <p>Lógica de Programación - Jose Quelal &copy; 2026</p>
+    </footer>
+
+</body>
 </html>
