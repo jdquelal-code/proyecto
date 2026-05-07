@@ -9,8 +9,68 @@
 
     <script src="../../js/script.js" defer></script>
 
+    <style>
+        /* --- BLOQUE DE SEGURIDAD PARA LEGIBILIDAD (NO BORRA NADA) --- */
+        .gallery-item {
+            position: relative;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .gallery-item img {
+            filter: brightness(0.65); /* Oscurece la imagen para resaltar la letra */
+            transition: 0.3s;
+            display: block;
+            width: 100%;
+        }
+        .gallery-item:hover img {
+            filter: brightness(0.8);
+        }
+        .gallery-item p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            color: #ffffff !important; /* Blanco puro */
+            font-weight: 700 !important;
+            text-shadow: 2px 2px 8px #000000, 0px 0px 10px #000000 !important; /* Doble sombra para lectura perfecta */
+            padding: 15px;
+            margin: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            text-align: center;
+        }
+
+        /* Estilo del Botón de Salida */
+        .btn-exit-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+        }
+        .btn-exit {
+            background: #d32f2f;
+            color: white;
+            border: 2px solid #fff;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+        .btn-exit:hover { transform: scale(1.05); background: #b71c1c; }
+        
+        .fade-exit-active { opacity: 0; transition: opacity 0.5s; }
+    </style>
 </head>
-<body>
+<body id="main-body">
+
+    <div class="btn-exit-container">
+        <button class="btn-exit" onclick="salirAlInicio()">
+            🚪 Salir al Inicio
+        </button>
+    </div>
+
     <div id="opening-screen" class="opening-screen">
         <div class="pacto-logo-container">
             <div class="petro-portrait">
@@ -53,11 +113,9 @@
                 <h2 class="message-title">SOY GUSTAVO PETRO</h2>
                 <h3 class="message-subtitle">Y SOY SU PRESIDENTE</h3>
                 <p class="message-text" id="speech-text">Juntos construiremos la paz, la justicia social y un país donde quepan todos los sueños.</p>
-                
                 <button class="btn-listen" id="play-voice" onclick="controlarAudio()">
                     <span class="icon">🔊</span> Escuchar mensaje
                 </button>
-
                 <div style="display:none;">
                     <iframe id="yt-player" width="1" height="1" 
                         src="https://www.youtube.com/embed/rS_jjjms3rM?enablejsapi=1" 
@@ -65,41 +123,16 @@
                     </iframe>
                 </div>
             </div>
-            
         </div>
         <div class="achievements-intro" id="achievements">
             <h2 class="achievements-title">LO QUE HE HECHO POR EL PAÍS</h2>
             <div class="achievements-grid">
-                <div class="achievement-item">
-                    <span class="achievement-icon">📚</span>
-                    <h3>Educación Gratis</h3>
-                    <p>Educación superior gratuita para estudiantes de bajos recursos</p>
-                </div>
-                <div class="achievement-item">
-                    <span class="achievement-icon">🏥</span>
-                    <h3>Reforma a la Salud</h3>
-                    <p>Sistema de salud preventivo y universal</p>
-                </div>
-                <div class="achievement-item">
-                    <span class="achievement-icon">🕊️</span>
-                    <h3>Paz Total</h3>
-                    <p>Política de paz para terminar el conflicto armado</p>
-                </div>
-                <div class="achievement-item">
-                    <span class="achievement-icon">⚡</span>
-                    <h3>Transición Energética</h3>
-                    <p>Plan hacia fuentes de energía renovables</p>
-                </div>
-                <div class="achievement-item">
-                    <span class="achievement-icon">💰</span>
-                    <h3>Reforma Tributaria</h3>
-                    <p>Tributación progresiva que beneficia a los vulnerables</p>
-                </div>
-                <div class="achievement-item">
-                    <span class="achievement-icon">🌎</span>
-                    <h3>Política Exterior</h3>
-                    <p>Fortalecimiento de relaciones en América Latina</p>
-                </div>
+                <div class="achievement-item"><span class="achievement-icon">📚</span><h3>Educación Gratis</h3><p>Educación superior gratuita para estudiantes de bajos recursos</p></div>
+                <div class="achievement-item"><span class="achievement-icon">🏥</span><h3>Reforma a la Salud</h3><p>Sistema de salud preventivo y universal</p></div>
+                <div class="achievement-item"><span class="achievement-icon">🕊️</span><h3>Paz Total</h3><p>Política de paz para terminar el conflicto armado</p></div>
+                <div class="achievement-item"><span class="achievement-icon">⚡</span><h3>Transición Energética</h3><p>Plan hacia fuentes de energía renovables</p></div>
+                <div class="achievement-item"><span class="achievement-icon">💰</span><h3>Reforma Tributaria</h3><p>Tributación progresiva que beneficia a los vulnerables</p></div>
+                <div class="achievement-item"><span class="achievement-icon">🌎</span><h3>Política Exterior</h3><p>Fortalecimiento de relaciones en América Latina</p></div>
             </div>
             <button class="btn-enter" id="enter-site">Entrar al Sitio</button>
         </div>
@@ -115,11 +148,6 @@
                 <li><a href="#logros" class="nav-link">Logros</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
@@ -138,142 +166,64 @@
 
     <section id="biografia" class="section">
         <div class="container">
-            <h2 class="section-title" data-animate="slideInLeft">Biografía</h2>
+            <h2 class="section-title">Biografía</h2>
             <div class="biografia-grid">
-                <div class="biografia-card" data-animate="fadeInUp">
-                    <div class="card-icon">📅</div>
-                    <h3>Nacimiento</h3>
-                    <p>Nació el 17 de abril de 1960 en Ciénaga, Magdalena. Economista de formación, egresado de la Universidad Externado de Colombia.</p>
-                </div>
-                <div class="biografia-card" data-animate="fadeInUp" data-delay="100">
-                    <div class="card-icon">🎓</div>
-                    <h3>Formación</h3>
-                    <p>Economista con especialización en finanzas y gestión pública. Estudios en administración y economía ambiental.</p>
-                </div>
-                <div class="biografia-card" data-animate="fadeInUp" data-delay="200">
-                    <div class="card-icon">💼</div>
-                    <h3>Carrera Política</h3>
-                    <p>Congresista, Alcalde de Bogotá (2012-2015), Senador de la República, y actual Presidente de Colombia.</p>
-                </div>
-            </div>
-            <div class="biografia-destacado" data-animate="fadeInUp">
-                <blockquote>
-                    "La paz no es solo el silencio de los fusiles, es la construcción de una sociedad donde quepan todos los sueños."
-                </blockquote>
-                <cite>- Gustavo Petro</cite>
+                <div class="biografia-card">📅<h3>Nacimiento</h3><p>17 de abril de 1960 en Ciénaga, Magdalena.</p></div>
+                <div class="biografia-card">🎓<h3>Formación</h3><p>Economista de la Universidad Externado de Colombia.</p></div>
+                <div class="biografia-card">💼<h3>Carrera Política</h3><p>Congresista, Alcalde de Bogotá, Senador y Presidente.</p></div>
             </div>
         </div>
     </section>
 
     <section id="trayectoria" class="section section-dark">
         <div class="container">
-            <h2 class="section-title" data-animate="slideInLeft">Trayectoria Política</h2>
+            <h2 class="section-title">Trayectoria Política</h2>
             <div class="timeline" id="timeline">
-                <div class="timeline-item" data-year="1988">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Movimiento Alternativo</h3>
-                        <p>Fundación del Movimiento Alternativo Social (MAS), primera organización política de izquierda legal en Colombia.</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-year="1991">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Asambleísta Constituyente</h3>
-                        <p>Elección como asambleísta para la Constitución Política de 1991.</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-year="1998">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Congresista</h3>
-                        <p>Elección como Representante a la Cámara por Bogotá.</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-year="2006">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Senador</h3>
-                        <p>Elección como Senador de la República con la mayor votación de la historia para un candidato de izquierda.</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-year="2012">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Alcalde de Bogotá</h3>
-                        <p>Elección como Alcalde Mayor de Bogotá. Implementó políticas de movilidad sostenible y seguridad alimentaria.</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-year="2018">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Candidatura Presidencial</h3>
-                        <p>Candidatura a la Presidencia con el movimiento Colombia Humana. Segunda vuelta más ajustada en la historia.</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-year="2022">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Presidente de Colombia</h3>
-                        <p>Elección como Presidente de la República en segunda vuelta, convirtiéndose en el primer presidente de izquierda en la historia del país.</p>
-                    </div>
-                </div>
+                <div class="timeline-item" data-year="1988"><div class="timeline-content"><h3>Movimiento Alternativo</h3><p>Fundación del MAS.</p></div></div>
+                <div class="timeline-item" data-year="1991"><div class="timeline-content"><h3>Asambleísta</h3><p>Constitución de 1991.</p></div></div>
+                <div class="timeline-item" data-year="1998"><div class="timeline-content"><h3>Congresista</h3><p>Representante a la Cámara.</p></div></div>
+                <div class="timeline-item" data-year="2006"><div class="timeline-content"><h3>Senador</h3><p>Senador de la República.</p></div></div>
+                <div class="timeline-item" data-year="2012"><div class="timeline-content"><h3>Alcalde</h3><p>Alcalde de Bogotá.</p></div></div>
+                <div class="timeline-item" data-year="2018"><div class="timeline-content"><h3>Candidato</h3><p>Colombia Humana.</p></div></div>
+                <div class="timeline-item" data-year="2022"><div class="timeline-content"><h3>Presidente</h3><p>Primer gobierno progresista.</p></div></div>
             </div>
         </div>
     </section>
 
     <section id="logros" class="section">
         <div class="container">
-            <h2 class="section-title" data-animate="slideInLeft">Logros del Gobierno</h2>
+            <h2 class="section-title">Logros del Gobierno</h2>
             <div class="logros-grid">
-                <div class="logro-card" data-animate="scaleIn">
-                    <div class="logro-number">01</div>
-                    <h3>Reforma Tributaria</h3>
-                    <p>Implementación de una reforma tributaria progresiva que beneficia a los más vulnerables y cierra brechas de desigualdad.</p>
-                </div>
-                <div class="logro-card" data-animate="scaleIn" data-delay="100">
-                    <div class="logro-number">02</div>
-                    <h3>Paz Total</h3>
-                    <p>Política de paz con enfoque diferencial para terminar el conflicto armado y promover la reconciliación nacional.</p>
-                </div>
-                <div class="logro-card" data-animate="scaleIn" data-delay="200">
-                    <div class="logro-number">03</div>
-                    <h3>Transición Energética</h3>
-                    <p>Plan de transición energética hacia fuentes renovables, reduciendo la dependencia de combustibles fósiles.</p>
-                </div>
-                <div class="logro-card" data-animate="scaleIn" data-delay="300">
-                    <div class="logro-number">04</div>
-                    <h3>Reforma a la Salud</h3>
-                    <p>Transformación del sistema de salud hacia un modelo preventivo y universal.</p>
-                </div>
-                <div class="logro-card" data-animate="scaleIn" data-delay="400">
-                    <div class="logro-number">05</div>
-                    <h3>Educación Gratis</h3>
-                    <p>Implementación de educación superior gratuita para estudiantes de bajos recursos económicos.</p>
-                </div>
-                <div class="logro-card" data-animate="scaleIn" data-delay="500">
-                    <div class="logro-number">06</div>
-                    <h3>Política Exterior</h3>
-                    <p>Fortalecimiento de relaciones con países de América Latina y promoción de la integración regional.</p>
-                </div>
+                <div class="logro-card"><h3>Reforma Tributaria</h3><p>Justicia social y equidad.</p></div>
+                <div class="logro-card"><h3>Paz Total</h3><p>Búsqueda de la reconciliación nacional.</p></div>
+                <div class="logro-card"><h3>Transición Energética</h3><p>Hacia un modelo de energías limpias.</p></div>
             </div>
         </div>
     </section>
 
-    <section class="counter-section">
+    <section id="galeria" class="section">
         <div class="container">
-            <div class="counter-grid">
-                <div class="counter-item" data-animate="countUp" data-target="1000">
-                    <span class="counter-number">0</span>
-                    <span class="counter-label">Días de Gobierno</span>
+            <h2 class="section-title">Galería de Colombia</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="../../imagenes/casa de nariño.jpg" alt="Casa de Nariño">
+                    <p>Palacio de Nariño - Casa de Gobierno</p>
                 </div>
-                <div class="counter-item" data-animate="countUp" data-target="50">
-                    <span class="counter-number">0</span>
-                    <span class="counter-label">Políticas Implementadas</span>
+                <div class="gallery-item">
+                    <img src="../../imagenes/cataleya.jpg" alt="Orquídea">
+                    <p>Orquídea Cataleya - Flor Nacional</p>
                 </div>
-                <div class="counter-item" data-animate="countUp" data-target="32">
-                    <span class="counter-number">0</span>
-                    <span class="counter-label">Años de Trayectoria</span>
+                <div class="gallery-item">
+                    <img src="../../imagenes/colombia.jpg" alt="Mapa">
+                    <p>Mapa de Colombia</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="../../imagenes/flor.jpg" alt="Flor">
+                    <p>Biodiversidad de la Flora Colombiana</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="../../imagenes/rio.jpg" alt="Río">
+                    <p>Ríos y Paisajes Naturales</p>
                 </div>
             </div>
         </div>
@@ -281,69 +231,34 @@
 
     <section id="contacto" class="section section-dark">
         <div class="container">
-            <h2 class="section-title" data-animate="slideInLeft">Contacto</h2>
+            <h2 class="section-title">Contacto</h2>
             <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <input type="text" id="name" required>
-                    <label for="name">Nombre</label>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" required>
-                    <label for="email">Correo Electrónico</label>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" required></textarea>
-                    <label for="message">Mensaje</label>
-                </div>
+                <div class="form-group"><input type="text" id="name" required><label for="name">Nombre</label></div>
+                <div class="form-group"><input type="email" id="email" required><label for="email">Correo</label></div>
+                <div class="form-group"><textarea id="message" required></textarea><label for="message">Mensaje</label></div>
                 <button type="submit" class="btn-primary">Enviar Mensaje</button>
             </form>
         </div>
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Tributo a Gustavo Petro. Todos los derechos reservados.</p>
-            <p class="footer-subtitle">Página de tributo elaborada con fines informativos.</p>
-        </div>
+        <div class="container"><p>&copy; 2026 Tributo a Gustavo Petro.</p></div>
     </footer>
-
-
-    <section id="galeria" class="section">
-        <div class="container">
-            <h2 class="section-title" data-animate="slideInLeft">Galería de Colombia</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="../../imagenes/casa de nariño.jpg" alt="Casa de Nariño">
-                    <p>Palacio de Nariño - Casa de Gobierno</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="../../imagenes/cataleya.jpg" alt="Orquídea Cataleya">
-                    <p>Orquídea Cataleya (Flor Nacional)</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="../../imagenes/colombia.jpg" alt="Mapa de Colombia">
-                    <p>Mapa de Colombia</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="../../imagenes/flor.jpg" alt="Flor de Colombia">
-                    <p>Biodiversidad Flora Colombiana</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="../../imagenes/rio.jpg" alt="Río de Colombia">
-                    <p>Ríos y Paisajes Naturales</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <script>
         function controlarAudio() {
             var player = document.getElementById('yt-player');
-            // Recargamos el src con autoplay para que el navegador permita el audio tras el click
             player.src += "&autoplay=1";
             document.getElementById('play-voice').innerText = "🔊 Reproduciendo...";
         }
-    </script>
 
+        function salirAlInicio() {
+            document.getElementById('main-body').classList.add('fade-exit-active');
+            setTimeout(() => {
+                // Sube dos niveles para ir al index principal de tu GitHub Pages o servidor
+                window.location.href = "../../index.html"; 
+            }, 500);
+        }
+    </script>
 </body>
 </html>
