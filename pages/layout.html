@@ -14,6 +14,7 @@
             --verde-fondo: #f2f4f3;
             --blanco: #ffffff;
             --crema: #f2e8cf;
+            --rojo-salida: #bc4749; /* Color para resaltar la salida */
         }
 
         html {
@@ -29,6 +30,13 @@
             padding: 20px;
         }
 
+        /* Contenedor de botones para que queden alineados */
+        .nav-container-top {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
         /* Botón de navegación flotante */
         .btn-nav {
             display: inline-block;
@@ -37,13 +45,22 @@
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 20px;
-            margin-bottom: 20px;
             font-weight: bold;
             transition: 0.3s;
         }
 
         .btn-nav:hover {
             background-color: var(--verde-oscuro);
+            transform: translateY(-2px);
+        }
+
+        /* Botón de Salida a la Página Principal */
+        .btn-exit {
+            background-color: var(--rojo-salida);
+        }
+
+        .btn-exit:hover {
+            background-color: #6a040f;
         }
 
         /* Contenedor Flexbox para los Cuadritos */
@@ -104,9 +121,12 @@
         }
     </style>
 </head>
-<body>
+<body id="inicio">
 
-    <a href="#seccion-final" class="btn-nav">Ir al final de la página ↓</a>
+    <div class="nav-container-top">
+        <a href="../../index.html" class="btn-nav btn-exit">🔙 Volver al Inicio</a>
+        <a href="#seccion-final" class="btn-nav">Ir al final ↓</a>
+    </div>
 
     <div class="contenedor-layout">
         <section class="columna-principal">
@@ -132,6 +152,7 @@
     <footer id="seccion-final">
         <h2>Llegaste al final</h2>
         <p>Layout diseñado por Jose Quelal &copy; 2026</p>
+        <a href="#inicio" style="color: var(--verde-claro); text-decoration: none; font-weight: bold;">↑ Subir de nuevo</a>
     </footer>
 
 </body>

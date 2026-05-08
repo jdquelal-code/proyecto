@@ -4,23 +4,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio</title>
+    <title>Validación Múltiplos - Jose Quelal</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Variables Aesthetic Verde */
+        :root {
+            --verde-oscuro: #2d4a22;
+            --verde-principal: #6a994e;
+            --verde-claro: #a7c957;
+            --verde-fondo: #f2f4f3;
+            --blanco: #ffffff;
+            --rojo-salida: #bc4749;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--verde-fondo);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Botón de Salida */
+        .btn-exit-top {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--rojo-salida);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .btn-exit-top:hover {
+            background-color: #6a040f;
+            transform: scale(1.05);
+        }
+
+        /* Tarjeta de Instrucciones */
+        .card {
+            background-color: var(--blanco);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        h1 { color: var(--verde-oscuro); }
+        
+        .instrucciones {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--verde-principal);
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .highlight {
+            background-color: var(--verde-claro);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* Botón de inicio del programa */
+        .btn-start {
+            background-color: var(--verde-principal);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(106, 153, 78, 0.3);
+        }
+
+        .btn-start:hover {
+            background-color: var(--verde-oscuro);
+            transform: translateY(-3px);
+        }
+    </style>
 </head>
 
 <body>
+
+    <a href="../../index.html" class="btn-exit-top">🔙 Salir al Inicio</a>
+
+    <div class="card">
+        <h1>🔍 Validador de Múltiplos</h1>
+        <p>Este programa utiliza un bucle <strong>while</strong> para verificar si el número ingresado es un múltiplo exacto de 17.</p>
+        
+        <div class="instrucciones">
+            <h3>¿Qué hace este código?</h3>
+            <ul>
+                <li>Solicita un número por teclado.</li>
+                <li>Verifica si el residuo de la división entre 17 es cero.</li>
+                <li>Si no es múltiplo, repite la pregunta hasta que aciertes.</li>
+            </ul>
+            <p>Atajo para la consola: <span class="highlight">F12</span></p>
+        </div>
+
+        <button class="btn-start" onclick="ejecutarPrograma()">Iniciar Validación</button>
+    </div>
+
+    <footer style="margin-top: 20px; color: var(--verde-principal);">
+        Diseñado por Jose Quelal &copy; 2026
+    </footer>
+
     <script>
+        function ejecutarPrograma() {
+            // --- TU CÓDIGO ORIGINAL ENCAPSULADO ---
+            console.log("Iniciando validación de múltiplos de 17...");
 
-        let numero = prompt("Introduzca un multipo de 17");
+            let numero = prompt("Introduzca un multipo de 17");
 
-        while (numero % 17 != 0 && numero != 17) {
+            // Si el usuario cancela el prompt
+            if (numero === null) return;
 
-            alert("INCORRECTO");
-            numero = prompt("Introduzca un multiplo de 17");
+            while (numero % 17 != 0 && numero != 17) {
+                console.warn("Intento fallido: " + numero + " no es múltiplo de 17.");
+                alert("INCORRECTO");
+                numero = prompt("Introduzca un multiplo de 17");
+                if (numero === null) break;
+            }
+            
+            if (numero !== null) {
+                console.log("¡Éxito! El número " + numero + " es correcto.");
+                alert("BIEN HECHO");
+            }
         }
-        alert("BIEN HECHO");
-
-
-
     </script>
 </body>
 

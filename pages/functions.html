@@ -2,52 +2,145 @@
 <html lang="es">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones - Jose Quelal</title>
     <link rel="stylesheet" href="../css/style.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Funciones </title>
 
-  <script>
-    function mayor_edad(edad) {
-      let mayor = false;
-      if (edad >= 18)
-        mayor = true;
-      return mayor;
-    }
-    function hello(name) {
-      alert("Hello, welcome to my webpage" + name)
+    <style>
+        /* Variables Aesthetic Verde */
+        :root {
+            --verde-oscuro: #2d4a22;
+            --verde-principal: #6a994e;
+            --verde-claro: #a7c957;
+            --verde-fondo: #f2f4f3;
+            --blanco: #ffffff;
+            --rojo-salida: #bc4749;
+        }
 
-    }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--verde-fondo);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
 
-    //Ejemplo con valor 15 
-    console.log(mayor_edad(15))
+        /* Botón de Salida */
+        .btn-exit-top {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--rojo-salida);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
 
-    //Ejemplo con valor 18
-    console.log(mayor_edad(18));
+        .btn-exit-top:hover {
+            background-color: #6a040f;
+            transform: scale(1.05);
+        }
 
+        /* Tarjeta de Contenido */
+        .card {
+            background-color: var(--blanco);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            border: 1px solid #e0e0e0;
+        }
 
-    let name = prompt("Dame tu nombre");
-    hello(name);
+        h1 { color: var(--verde-oscuro); margin-bottom: 15px; }
+        p { color: #666; margin-bottom: 25px; line-height: 1.6; }
 
-    let age = prompt("Dame tu edad");
+        .btn-run {
+            background-color: var(--verde-principal);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(106, 153, 78, 0.3);
+        }
 
-    if (mayor_edad(age)) {
+        .btn-run:hover {
+            background-color: var(--verde-oscuro);
+            transform: translateY(-3px);
+        }
 
-      //mayor de edad permite ingreso
-      alert("Bienvenido");
-    } else {
+        footer {
+            margin-top: 20px;
+            color: var(--verde-principal);
+            font-size: 0.9rem;
+        }
+    </style>
 
+    <script>
+        // --- TUS FUNCIONES ORIGINALES ---
+        function mayor_edad(edad) {
+            let mayor = false;
+            if (edad >= 18)
+                mayor = true;
+            return mayor;
+        }
 
-      //menor de edad restringe 
-      alert("No puedes ingresar a la web");
-    }
+        function hello(name) {
+            alert("Hello, welcome to my webpage " + name);
+        }
 
+        // Función para ejecutar tu lógica al pulsar el botón
+        function ejecutarPruebas() {
+            // Ejemplo con valor 15 en consola
+            console.log("¿Es mayor de edad (15)?: " + mayor_edad(15));
 
-  </script>
+            // Ejemplo con valor 18 en consola
+            console.log("¿Es mayor de edad (18)?: " + mayor_edad(18));
 
+            let name = prompt("Dame tu nombre");
+            if (name) hello(name);
+
+            let age = prompt("Dame tu edad");
+            if (age) {
+                if (mayor_edad(age)) {
+                    // mayor de edad permite ingreso
+                    alert("Bienvenido");
+                } else {
+                    // menor de edad restringe 
+                    alert("No puedes ingresar a la web");
+                }
+            }
+        }
+    </script>
 </head>
 
 <body>
+
+    <a href="../../index.html" class="btn-exit-top">🔙 Salir al Inicio</a>
+
+    <div class="card">
+        <h1>Uso de Funciones</h1>
+        <p>En este ejercicio utilizamos funciones para saludar al usuario y validar si tiene la edad suficiente para acceder al contenido.</p>
+        
+        <button class="btn-run" onclick="ejecutarPruebas()">Iniciar Validación</button>
+    </div>
+
+    <footer>
+        Diseñado por Jose Quelal &copy; 2026
+    </footer>
 
 </body>
 

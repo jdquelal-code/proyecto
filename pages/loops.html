@@ -1,87 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bucles</title>
+    <title>Bucles - Jose Quelal</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Variables Aesthetic Verde */
+        :root {
+            --verde-oscuro: #2d4a22;
+            --verde-principal: #6a994e;
+            --verde-claro: #a7c957;
+            --verde-fondo: #f2f4f3;
+            --blanco: #ffffff;
+            --rojo-salida: #bc4749;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--verde-fondo);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Botón de Salida */
+        .btn-exit-top {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--rojo-salida);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Tarjeta de Instrucciones */
+        .card {
+            background-color: var(--blanco);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid #e0e0e0;
+        }
+
+        h1 { color: var(--verde-oscuro); text-align: center; }
+        
+        .pasos {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid var(--verde-principal);
+            text-align: left;
+        }
+
+        ol { line-height: 1.8; color: #444; }
+        
+        .highlight {
+            background-color: var(--verde-claro);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: var(--verde-oscuro);
+        }
+    </style>
 </head>
 <body>
-        <script>
-            //Bucle for 
-             //Mostrar en consola números del 1 al 10
-             for(let i = 1; i < 10; i++){
-                 //Instrucciones que se repiten 
-                 console.log(i);
-             }
 
-             //Mostrar en consola números del 10 al 1
-             console.log("Números del 10 al 1 ");
-             for(let i = 10; i < 1; i--){
-                 //Instrucciones que se repiten 
-                 console.log(i);
-             }
+    <a href="../../index.html" class="btn-exit-top">🔙 Salir al Inicio</a>
 
-            //Mostrar en consola números del 1 al 20}
-            console.log("Números pares del 1 al 20:");
-            for(let i = 1 ; i <= 20; i++) {
-                 //Instrucciones que se repiten 
-                if (i % 2 === 0) {
-                  console.log(i);
-                }
-               
-             }
+    <div class="card">
+        <h1>🔍 ¡Mira la Consola!</h1>
+        <p style="text-align: center;">Los resultados de los bucles están ocultos en las herramientas de desarrollador.</p>
+        
+        <div class="pasos">
+            <h3>Pasos para ver el resultado:</h3>
+            <ol>
+                <li>Haz clic derecho en cualquier parte de esta página.</li>
+                <li>Selecciona la opción <span class="highlight">Inspeccionar</span>.</li>
+                <li>En la ventana que se abre, busca la pestaña que dice <span class="highlight">Consola (Console)</span>.</li>
+                <li>¡Ahí verás todos los números generados por el código!</li>
+            </ol>
+        </div>
+        <p style="font-size: 0.8rem; color: #999; text-align: center; margin-top: 20px;">
+            Atajo de teclado: <strong>F12</strong> o <strong>Ctrl + Shift + I</strong>
+        </p>
+    </div>
 
-              console.log("Números pares del 1 al 20:");
-                for(let i = 1 ; i <= 10; i++){
-                     // instrucciones que se repiten
-                     console.log(1+2);
-                }
-               
-                //Bucle while
+    <script>
+        // --- TU CÓDIGO ORIGINAL (SIN CAMBIOS) ---
 
-                let numero = 5;
+        //Bucle for 
+        //Mostrar en consola números del 1 al 10
+        for(let i = 1; i < 10; i++){
+            //Instrucciones que se repiten 
+            console.log(i);
+        }
 
-                console.log("10 primeros multiplos de 5")
-                while(numero < 50 ){
-                      console.log(numero);
-                      numero += 5;
-                }
+        //Mostrar en consola números del 10 al 1
+        console.log("Números del 10 al 1 ");
+        for(let i = 10; i < 1; i--){
+            //Instrucciones que se repiten 
+            console.log(i);
+        }
 
-                numero = 5
+        //Mostrar en consola números del 1 al 20}
+        console.log("Números pares del 1 al 20:");
+        for(let i = 1 ; i <= 20; i++) {
+            //Instrucciones que se repiten 
+            if (i % 2 === 0) {
+                console.log(i);
+            }
+        }
 
-                console.log("10 primeros multiplos de 5 utilizados do.. while ");
-                do {
-                    console.log(numero);
-                    numero = numero + 5;
-                }while(numero <= 50)
+        console.log("Números pares del 1 al 20:");
+        for(let i = 1 ; i <= 10; i++){
+            // instrucciones que se repiten
+            console.log(1+2);
+        }
+        
+        //Bucle while
+        let numero = 5;
+        console.log("10 primeros multiplos de 5")
+        while(numero < 50 ){
+            console.log(numero);
+            numero += 5;
+        }
 
-                //Instrucciones de control
+        numero = 5
+        console.log("10 primeros multiplos de 5 utilizados do.. while ");
+        do {
+            console.log(numero);
+            numero = numero + 5;
+        }while(numero <= 50)
 
-                console.log("Instrucciones de control break y continue ")
-
-                for(let j = 0; j<100;j++){
-
-                    if (j % 3 === 0){
-                        continue;  // Salta al siguiente iterador
-                    }
-
-                    console.log(j);
-
-                    if (j === 30){
-                        break; //Detiene la ejecución
-                    }
-
-                }
-                
-                
-
-
-
-
-
-
-
-        </script>
+        //Instrucciones de control
+        console.log("Instrucciones de control break y continue ")
+        for(let j = 0; j<100;j++){
+            if (j % 3 === 0){
+                continue;  // Salta al siguiente iterador
+            }
+            console.log(j);
+            if (j === 30){
+                break; //Detiene la ejecución
+            }
+        }
+    </script>
 </body>
 </html>

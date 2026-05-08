@@ -1,40 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Condicionales </title>
+    <title>Condicionales - Jose Quelal</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Variables Aesthetic Verde - Manteniendo la consistencia */
+        :root {
+            --verde-oscuro: #2d4a22;
+            --verde-principal: #6a994e;
+            --verde-claro: #a7c957;
+            --verde-fondo: #f2f4f3;
+            --blanco: #ffffff;
+            --crema: #f2e8cf;
+            --rojo-salida: #bc4749;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--verde-fondo);
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Botón de Salida Flotante */
+        .btn-exit-top {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--rojo-salida);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn-exit-top:hover {
+            background-color: #6a040f;
+            transform: scale(1.05);
+        }
+
+        /* Tarjeta Contenedora */
+        .card {
+            background-color: var(--blanco);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e0e0e0;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .card h1 {
+            color: var(--verde-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Botón para iniciar el script */
+        .btn-start {
+            background-color: var(--verde-principal);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(106, 153, 78, 0.3);
+        }
+
+        .btn-start:hover {
+            background-color: var(--verde-oscuro);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            margin-top: 20px;
+            color: var(--verde-principal);
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-        <script>
 
-            //Prompt permite leer un valor desde teclado
-              let edad = prompt("Diga su edad")
+    <a href="../../index.html" class="btn-exit-top">🔙 Salir al Inicio</a>
 
-              if(edad >= 18)
-                alert("usted es mayor de edad")
-            else
-                alert("Usted es menor de edad")
+    <div class="card">
+        <h1>Evaluación de Condicionales</h1>
+        <p>Haz clic en el botón de abajo para iniciar la verificación de edad y el sistema de calificaciones académicas.</p>
+        
+        <button class="btn-start" onclick="iniciarPrograma()">Ejecutar Programa</button>
+    </div>
 
+    <footer>
+        Diseñado por Jose Quelal &copy; 2026
+    </footer>
 
+    <script>
+        function iniciarPrograma() {
+            // --- PARTE 1: EDAD ---
+            let edad = prompt("Diga su edad");
 
-            
+            if (edad === null) return; // Si cancela el prompt
 
-           let calificacion  = prompt("Introduzca su calificación")
+            if (edad >= 18) {
+                alert("Usted es mayor de edad ✅");
+            } else {
+                alert("Usted es menor de edad 👶");
+            }
 
-           if (calificacion < 3.5)
-             alert("Desempeño BAJO");
-            else if (calificacion < 4)
-                alert("Desempeño BASICO");
-            else if ("Desempeño < 4.5")
-                 alert("Desempeño ALTO");
-            else if (calificacion <=5)
-                  alert("Desempeño SUPERIOR ");
-            else
-                    alert("La calificacion no es valida ")
-                
-                
-        </script>
+            // --- PARTE 2: CALIFICACIÓN ---
+            let calificacion = prompt("Introduzca su calificación (0 - 5)");
+
+            if (calificacion === null) return; // Si cancela el prompt
+
+            // Convertimos a número para asegurar la comparación
+            calificacion = parseFloat(calificacion);
+
+            if (calificacion < 3.5) {
+                alert("📉 Desempeño BAJO");
+            } else if (calificacion < 4) {
+                alert("📊 Desempeño BÁSICO");
+            } else if (calificacion < 4.5) { // Corregido: antes tenías un texto aquí
+                alert("📈 Desempeño ALTO");
+            } else if (calificacion <= 5) {
+                alert("🏆 Desempeño SUPERIOR");
+            } else {
+                alert("❌ La calificación no es válida. Debe ser entre 0 y 5.");
+            }
+        }
+    </script>
 </body>
 </html>

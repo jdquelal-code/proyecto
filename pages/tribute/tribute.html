@@ -31,12 +31,13 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            color: #ffffff !important; /* Blanco puro */
+            color: #FFD700 !important; /* Dorado brillante */
             font-weight: 700 !important;
-            text-shadow: 2px 2px 8px #000000, 0px 0px 10px #000000 !important; /* Doble sombra para lectura perfecta */
+            font-size: 16px !important;
+            text-shadow: 2px 2px 8px #000000, 0px 0px 12px rgba(0,0,0,0.9) !important;
             padding: 15px;
             margin: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
             text-align: center;
         }
 
@@ -116,12 +117,10 @@
                 <button class="btn-listen" id="play-voice" onclick="controlarAudio()">
                     <span class="icon">🔊</span> Escuchar mensaje
                 </button>
-                <div style="display:none;">
-                    <iframe id="yt-player" width="1" height="1" 
-                        src="https://www.youtube.com/embed/rS_jjjms3rM?enablejsapi=1" 
-                        frameborder="0" allow="autoplay">
-                    </iframe>
-                </div>
+                <audio id="audio-player" style="display:none;">
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
             </div>
         </div>
         <div class="achievements-intro" id="achievements">
@@ -247,10 +246,27 @@
 
     <script>
         function controlarAudio() {
-            var player = document.getElementById('yt-player');
-            player.src += "&autoplay=1";
-            document.getElementById('play-voice').innerText = "🔊 Reproduciendo...";
+            var audio = document.getElementById('audio-player');
+            var btn = document.getElementById('play-voice');
+            
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = "<span class='icon'>⏸️</span> Pausar audio";
+            } else {
+                audio.pause();
+                btn.innerHTML = "<span class='icon'>🔊</span> Escuchar mensaje";
+            }
         }
+        
+        // Reset del botón cuando termine el audio
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('audio-player');
+            if(audio) {
+                audio.addEventListener('ended', function() {
+                    document.getElementById('play-voice').innerHTML = "<span class='icon'>🔊</span> Escuchar mensaje";
+                });
+            }
+        });
 
         function salirAlInicio() {
             document.getElementById('main-body').classList.add('fade-exit-active');
